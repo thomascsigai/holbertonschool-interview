@@ -1,0 +1,1 @@
+This repo contains all the directories related to interviews projects at Holberton School.
