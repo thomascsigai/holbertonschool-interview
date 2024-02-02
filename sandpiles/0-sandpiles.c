@@ -65,13 +65,13 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
                 {
                     grid1[i][j] -= 4;
                     if (j - 1 >= 0)
-                        grid1[i][j - 1] += 1; //Gauche
+                        grid1[i][j - 1] += 1;
                     if (j + 1 <= 2)
-                        grid1[i][j + 1] += 1; //Droite
+                        grid1[i][j + 1] += 1;
                     if (i - 1 >= 0)
-                        grid1[i - 1][j] += 1; //Haut
+                        grid1[i - 1][j] += 1;
                     if (i + 1 <= 2)
-                        grid1[i + 1][j] += 1; //Bas
+                        grid1[i + 1][j] += 1;
                 }
             }
         }
