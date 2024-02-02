@@ -50,7 +50,8 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
         }
     }
 
-    int isStable = sandpile_is_stable(grid1);
+    int isStable;
+    isStable = sandpile_is_stable(grid1);
 
     while (isStable != 1)
     {
