@@ -19,14 +19,11 @@ int check_cycle(listint_t *list)
 
     do
     {
-        slowPointer = slowPointer->next;
-        
-        if (fastPointer->next->next)
-            fastPointer = fastPointer->next->next;
-        else
+        if (!slowPointer->next || !fastPointer->next || !fastPointer->next->next)
             return (0);
-        
-        
+
+        slowPointer = slowPointer->next;
+        fastPointer = fastPointer->next->next;
     } while (fastPointer != slowPointer);
 
     return (1);
