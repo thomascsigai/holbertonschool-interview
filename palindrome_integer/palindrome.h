@@ -1,5 +1,5 @@
-#ifndef PALINDROME.H
-#define PALINDROME.H
+#ifndef PALINDROME_H
+#define PALINDROME_H
 
 int is_palindrome(unsigned long n);
 
