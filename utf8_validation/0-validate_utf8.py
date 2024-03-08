@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 def validUTF8(data):
     num_bytes = 0
     msb_1 = 1 << 7
