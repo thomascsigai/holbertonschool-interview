@@ -1,9 +1,11 @@
 #!/usr/bin/python3
 import sys
 
+
 def print_solutions(solutions):
     for solution in solutions:
         print(solution)
+
 
 def is_safe(row, col, solution, N):
     for prev_row in range(row):
@@ -12,6 +14,7 @@ def is_safe(row, col, solution, N):
            solution[prev_row] + prev_row == col + row:
             return False
     return True
+
 
 def solve_n_queens(row, solution, N, solutions):
     if row == N:
@@ -22,6 +25,7 @@ def solve_n_queens(row, solution, N, solutions):
             solution[row] = col
             solve_n_queens(row + 1, solution, N, solutions)
 
+
 def nqueens(N):
     if N < 4:
         print("N must be at least 4")
@@ -29,8 +33,10 @@ def nqueens(N):
 
     solutions = []
     solve_n_queens(0, [0]*N, N, solutions)
-    formatted_solutions = [[(i, solution[i]) for i in range(N)] for solution in solutions]
+    formatted_solutions = [[(i, solution[i]) for i in range(N)] 
+                           for solution in solutions]
     print_solutions(formatted_solutions)
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
