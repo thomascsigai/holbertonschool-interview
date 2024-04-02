@@ -33,7 +33,7 @@ def nqueens(N):
 
     solutions = []
     solve_n_queens(0, [0]*N, N, solutions)
-    formatted_solutions = [[(i, solution[i]) for i in range(N)] 
+    formatted_solutions = [[(i, solution[i]) for i in range(N)]
                            for solution in solutions]
     print_solutions(formatted_solutions)
 
