@@ -60,7 +60,7 @@ void string_int_multiply(unsigned int *prod_digits, char *n1_digits,
  */
 void print_error() 
 {
-    fprintf(stderr, "Error\n");
+    printf("Error\n")
     exit(98);
 }
 
