@@ -58,30 +58,30 @@ void string_int_multiply(unsigned int *prod_digits, char *n1_digits,
 /**
  * print_error - print error message and exit with code 98
  */
-void print_error() 
+void print_error(void)
 {
-    printf("Error\n");
-    exit(98);
+	printf("Error\n");
+	exit(98);
 }
 
 /**
  * error_checking - check for wrong input
- * 
+ *
  * @argc: number of arguments
  * @argv: arguments vector
  */
-void error_checking(int argc, char *argv[]) 
+void error_checking(int argc, char *argv[])
 {
-    int i;
-    size_t j;
+	int i;
+	size_t j;
 
-    if (argc != 3)
-        print_error();
-    
-    for (i = 1; i < argc; i++)
-        for (j = 0; j < strlen(argv[i]); j++)
-            if (!isdigit(argv[i][j]))
-                print_error();
+	if (argc != 3)
+		print_error();
+
+	for (i = 1; i < argc; i++)
+		for (j = 0; j < strlen(argv[i]); j++)
+			if (!isdigit(argv[i][j]))
+				print_error();
 }
 
 /**
@@ -91,20 +91,20 @@ void error_checking(int argc, char *argv[])
  * @argv: array of command line arguments
  * Return: 0 on success, 98 on failure
  */
-int main(int argc, char *argv[]) 
+int main(int argc, char *argv[])
 {
-    size_t i, av1_len, av2_len, prod_len;
+	size_t i, av1_len, av2_len, prod_len;
 	unsigned int *prod_digits;
 
-    error_checking(argc, argv);
+	error_checking(argc, argv);
 
 	av1_len = strlen(argv[1]);
 	av2_len = strlen(argv[2]);
 	prod_len = av1_len + av2_len;
 
 	prod_digits = init_digit_array(prod_len);
-	
-    if (!prod_digits)
+
+	if (!prod_digits)
 		print_error();
 
 	string_int_multiply(prod_digits, argv[1], argv[2], av1_len, av2_len);
