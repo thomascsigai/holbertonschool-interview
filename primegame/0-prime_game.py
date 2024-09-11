@@ -2,16 +2,27 @@
 """ module 0
 """
 def isWinner(x, nums):
-    """method to find the winner of the prime game
+    """
+    Determines the player who wins the most rounds in the prime number game.
 
     Args:
-        x (int): number of rounds
-        nums (int[]):  array of numbers
+    x (int): The number of rounds.
+    nums (list of int): A list of integers where each integer represents the value of `n` for a round.
 
     Returns:
-        string: name of the winner
+    str: The name of the player who won the most rounds ("Maria" or "Ben").
+    None: If both players won an equal number of rounds.
     """
     def sieve(n):
+        """
+        Generates a list of prime numbers up to and including n using the Sieve of Eratosthenes.
+
+        Args:
+        n (int): The maximum number up to which primes are to be generated.
+
+        Returns:
+        list of int: A list of prime numbers up to and including n.
+        """
         is_prime = [True] * (n + 1)
         is_prime[0] = is_prime[1] = False
         p = 2
@@ -23,6 +34,15 @@ def isWinner(x, nums):
         return [num for num, prime in enumerate(is_prime) if prime]
 
     def simulate_game(n):
+        """
+        Generates a list of prime numbers up to and including n using the Sieve of Eratosthenes.
+
+        Args:
+        n (int): The maximum number up to which primes are to be generated.
+
+        Returns:
+        list of int: A list of prime numbers up to and including n.
+        """
         if n < 2:
             return "Ben"
         
