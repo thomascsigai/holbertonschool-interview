@@ -1,5 +1,3 @@
-#include "wild_cmp.h"
-
 /**
  * wildcmp - Compares two strings with wildcard support.
  * @s1: The first string.
@@ -9,18 +7,18 @@
  */
 int wildcmp(char *s1, char *s2)
 {
-    /* Base case: both strings are empty */
+    /* If both strings are empty, they match */
     if (*s1 == '\0' && *s2 == '\0')
         return (1);
 
-    /* If pattern is empty but string is not */
+    /* If pattern is empty but the string is not */
     if (*s2 == '\0')
         return (0);
 
-    /* If pattern has a '*', check for two scenarios */
+    /* If the pattern has a '*', check for both cases */
     if (*s2 == '*')
     {
-        /* Move past '*' and continue matching */
+        /* Skip '*' and continue matching (zero characters) */
         if (wildcmp(s1, s2 + 1))
             return (1);
         
@@ -30,10 +28,11 @@ int wildcmp(char *s1, char *s2)
     }
     else
     {
-        /* Check if the current characters match */
+        /* If characters match or current character in s2 is '.', continue */
         if (*s1 != '\0' && (*s1 == *s2 || *s2 == '.'))
             return (wildcmp(s1 + 1, s2 + 1));
     }
 
+    /* If no match is found */
     return (0);
 }
