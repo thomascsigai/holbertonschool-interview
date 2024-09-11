@@ -20,11 +20,11 @@ int wildcmp(char *s1, char *s2)
     /* If pattern has a '*', check for two scenarios */
     if (*s2 == '*')
     {
-        /* Skip '*' and continue */
+        /* Move past '*' and continue matching */
         if (wildcmp(s1, s2 + 1))
             return (1);
         
-        /* If there is a match for the rest of s1 with the rest of s2 */
+        /* If the current characters match, try to match the rest of s1 */
         if (*s1 != '\0' && wildcmp(s1 + 1, s2))
             return (1);
     }
