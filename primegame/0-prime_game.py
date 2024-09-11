@@ -2,20 +2,24 @@
 """
 prime_game_module
 
-This module contains functions to simulate a game involving prime numbers and determine the winner of multiple rounds. 
+This module provides functionality to simulate a prime number game between two players, Maria and Ben, and determine the winner of multiple rounds.
 
-The game involves two players, Maria and Ben, who take turns picking prime numbers from a set of consecutive integers starting from 1 up to and including `n`. When a player picks a prime number, that number and all of its multiples are removed from the set. The player who cannot make a move loses.
+The game rules are as follows:
+- Players alternate picking prime numbers from a set of consecutive integers starting from 1 up to and including `n`.
+- The chosen prime number and its multiples are removed from the set.
+- The player who cannot make a move loses the game.
 
 Functions:
-- isWinner(x, nums): Determines the player who won the most rounds given multiple values of `n`.
+- isWinner(x, nums): Determines which player won the most rounds across multiple values of `n`.
 
 Private Functions:
 - sieve(n): Generates a list of prime numbers up to and including `n`.
 - simulate_game(n): Simulates the game for a given `n` and determines the winner if both players play optimally.
 """
+
 def isWinner(x, nums):
     """
-    Determines the player who wins the most rounds in the prime number game.
+    Determines the player who won the most rounds in the prime number game.
 
     Args:
     x (int): The number of rounds.
@@ -36,7 +40,7 @@ def isWinner(x, nums):
         list of int: A list of prime numbers up to and including n.
         """
         is_prime = [True] * (n + 1)
-        is_prime[0] = is_prime[1] = False
+        is_prime[0] = is_prime[1] = False  # 0 and 1 are not primes
         p = 2
         while p * p <= n:
             if is_prime[p]:
@@ -47,17 +51,17 @@ def isWinner(x, nums):
 
     def simulate_game(n):
         """
-        Generates a list of prime numbers up to and including n using the Sieve of Eratosthenes.
+        Simulates the prime number game for a given n and determines the winner if both players play optimally.
 
         Args:
-        n (int): The maximum number up to which primes are to be generated.
+        n (int): The upper bound of the set of integers (1 to n) for the game.
 
         Returns:
-        list of int: A list of prime numbers up to and including n.
+        str: The name of the winner ("Maria" or "Ben").
         """
         if n < 2:
-            return "Ben"
-        
+            return "Ben"  # If n < 2, Maria has no moves and thus Ben wins.
+
         primes = sieve(n)
         numbers = set(range(1, n + 1))
         turn = 0  # Maria starts (0 for Maria, 1 for Ben)
@@ -82,6 +86,7 @@ def isWinner(x, nums):
         
         return "Ben" if turn == 0 else "Maria"
 
+    # Count wins for Maria and Ben
     maria_wins = 0
     ben_wins = 0
     
@@ -97,3 +102,8 @@ def isWinner(x, nums):
         return "Ben"
     else:
         return None
+
+# Example Usage
+if __name__ == "__main__":
+    # Test the function with an example case
+    print("Winner: {}".format(isWinner(5, [2, 5, 1, 4, 3])))
