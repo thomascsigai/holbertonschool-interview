@@ -10,14 +10,14 @@
  */
 int binary_tree_is_bst(const binary_tree_t *tree, int min, int max)
 {
-    if (tree == NULL)
-        return (1);
+	if (tree == NULL)
+		return (1);
 
-    if (tree->n < min || tree->n > max)
-        return (0);
+	if (tree->n < min || tree->n > max)
+		return (0);
 
-    return (binary_tree_is_bst(tree->left, min, tree->n - 1) &&
-            binary_tree_is_bst(tree->right, tree->n + 1, max));
+	return (binary_tree_is_bst(tree->left, min, tree->n - 1) &&
+			binary_tree_is_bst(tree->right, tree->n + 1, max));
 }
 
 /**
@@ -28,15 +28,15 @@ int binary_tree_is_bst(const binary_tree_t *tree, int min, int max)
  */
 int binary_tree_height(const binary_tree_t *tree)
 {
-    int left_height, right_height;
+	int left_height, right_height;
 
-    if (tree == NULL)
-        return (0);
+	if (tree == NULL)
+		return (0);
 
-    left_height = binary_tree_height(tree->left);
-    right_height = binary_tree_height(tree->right);
+	left_height = binary_tree_height(tree->left);
+	right_height = binary_tree_height(tree->right);
 
-    return (left_height > right_height ? left_height : right_height) + 1;
+	return ((left_height > right_height ? left_height : right_height) + 1);
 }
 
 /**
@@ -47,18 +47,18 @@ int binary_tree_height(const binary_tree_t *tree)
  */
 int is_balanced(const binary_tree_t *tree)
 {
-    int left_height, right_height;
+	int left_height, right_height;
 
-    if (tree == NULL)
-        return (1);
+	if (tree == NULL)
+		return (1);
 
-    left_height = binary_tree_height(tree->left);
-    right_height = binary_tree_height(tree->right);
+	left_height = binary_tree_height(tree->left);
+	right_height = binary_tree_height(tree->right);
 
-    if (abs(left_height - right_height) > 1)
-        return (0);
+	if (abs(left_height - right_height) > 1)
+		return (0);
 
-    return (is_balanced(tree->left) && is_balanced(tree->right));
+	return (is_balanced(tree->left) && is_balanced(tree->right));
 }
 
 /**
@@ -69,8 +69,8 @@ int is_balanced(const binary_tree_t *tree)
  */
 int binary_tree_is_avl(const binary_tree_t *tree)
 {
-    if (tree == NULL)
-        return (0);
+	if (tree == NULL)
+		return (0);
 
-    return (binary_tree_is_bst(tree, INT_MIN, INT_MAX) && is_balanced(tree));
+	return (binary_tree_is_bst(tree, INT_MIN, INT_MAX) && is_balanced(tree));
 }
