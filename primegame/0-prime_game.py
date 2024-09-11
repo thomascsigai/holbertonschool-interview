@@ -2,6 +2,15 @@
 """ module 0
 """
 def isWinner(x, nums):
+    """method to find the winner of the prime game
+
+    Args:
+        x (int): number of rounds
+        nums (int[]):  array of numbers
+
+    Returns:
+        string: name of the winner
+    """
     def sieve(n):
         is_prime = [True] * (n + 1)
         is_prime[0] = is_prime[1] = False
