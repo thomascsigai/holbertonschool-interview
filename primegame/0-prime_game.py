@@ -1,5 +1,17 @@
 #!/usr/bin/python3
-""" module 0
+"""
+prime_game_module
+
+This module contains functions to simulate a game involving prime numbers and determine the winner of multiple rounds. 
+
+The game involves two players, Maria and Ben, who take turns picking prime numbers from a set of consecutive integers starting from 1 up to and including `n`. When a player picks a prime number, that number and all of its multiples are removed from the set. The player who cannot make a move loses.
+
+Functions:
+- isWinner(x, nums): Determines the player who won the most rounds given multiple values of `n`.
+
+Private Functions:
+- sieve(n): Generates a list of prime numbers up to and including `n`.
+- simulate_game(n): Simulates the game for a given `n` and determines the winner if both players play optimally.
 """
 def isWinner(x, nums):
     """
