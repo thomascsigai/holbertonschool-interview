@@ -1,3 +1,7 @@
+#!/usr/bin/python3
+
+""" module 0
+"""
 def isWinner(x, nums):
     def sieve(n):
         is_prime = [True] * (n + 1)
