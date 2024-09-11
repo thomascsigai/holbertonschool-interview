@@ -11,42 +11,42 @@
  */
 List *add_node_end(List **list, char *str)
 {
-    List *new_node;
-    List *temp;
+	List *new_node;
+	List *temp;
 
-    if (str == NULL)
-        return (NULL);
+	if (str == NULL)
+		return (NULL);
 
-    new_node = malloc(sizeof(List));
-    if (new_node == NULL)
-        return (NULL);
+	new_node = malloc(sizeof(List));
+	if (new_node == NULL)
+		return (NULL);
 
-    new_node->str = strdup(str);
-    if (new_node->str == NULL)
-    {
-        free(new_node);
-        return (NULL);
-    }
+	new_node->str = strdup(str);
+	if (new_node->str == NULL)
+	{
+		free(new_node);
+		return (NULL);
+	}
 
-    if (*list == NULL)
-    {
-        /* The list is empty */
-        new_node->next = new_node;
-        new_node->prev = new_node;
-        *list = new_node;
-    }
-    else
-    {
-        /* The list is not empty */
-        temp = (*list)->prev;
+	if (*list == NULL)
+	{
+		/* The list is empty */
+		new_node->next = new_node;
+		new_node->prev = new_node;
+		*list = new_node;
+	}
+	else
+	{
+		/* The list is not empty */
+		temp = (*list)->prev;
 
-        temp->next = new_node;
-        new_node->prev = temp;
-        new_node->next = *list;
-        (*list)->prev = new_node;
-    }
+		temp->next = new_node;
+		new_node->prev = temp;
+		new_node->next = *list;
+		(*list)->prev = new_node;
+	}
 
-    return (new_node);
+	return (new_node);
 }
 
 /**
@@ -58,41 +58,41 @@ List *add_node_end(List **list, char *str)
  */
 List *add_node_begin(List **list, char *str)
 {
-    List *new_node;
-    List *temp;
+	List *new_node;
+	List *temp;
 
-    if (str == NULL)
-        return (NULL);
+	if (str == NULL)
+		return (NULL);
 
-    new_node = malloc(sizeof(List));
-    if (new_node == NULL)
-        return (NULL);
+	new_node = malloc(sizeof(List));
+	if (new_node == NULL)
+		return (NULL);
 
-    new_node->str = strdup(str);
-    if (new_node->str == NULL)
-    {
-        free(new_node);
-        return (NULL);
-    }
+	new_node->str = strdup(str);
+	if (new_node->str == NULL)
+	{
+		free(new_node);
+		return (NULL);
+	}
 
-    if (*list == NULL)
-    {
-        /* The list is empty */
-        new_node->next = new_node;
-        new_node->prev = new_node;
-        *list = new_node;
-    }
-    else
-    {
-        /* The list is not empty */
-        temp = (*list)->prev;
+	if (*list == NULL)
+	{
+		/* The list is empty */
+		new_node->next = new_node;
+		new_node->prev = new_node;
+		*list = new_node;
+	}
+	else
+	{
+		/* The list is not empty */
+		temp = (*list)->prev;
 
-        new_node->next = *list;
-        new_node->prev = temp;
-        (*list)->prev = new_node;
-        temp->next = new_node;
-        *list = new_node;
-    }
+		new_node->next = *list;
+		new_node->prev = temp;
+		(*list)->prev = new_node;
+		temp->next = new_node;
+		*list = new_node;
+	}
 
-    return (new_node);
+	return (new_node);
 }
