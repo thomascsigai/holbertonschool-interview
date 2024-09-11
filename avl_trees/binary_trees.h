@@ -2,6 +2,8 @@
 #define BINARY_TREES_H
 
 #include <stddef.h>
+#include <limits.h>
+#include <stdlib.h>
 
 /* Basic binary tree node structure */
 struct binary_tree_s
