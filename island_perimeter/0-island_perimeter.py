@@ -1,18 +1,19 @@
 #!/usr/bin/python3
-"""0-island_perimeter
+"""module island_perimeter
 """
 
 
 def island_perimeter(grid):
     """
-    Calculates the perimeter of an island described in a grid.
+    Determine the fewest number of coins needed to meet a given amount total.
 
     Args:
-        grid (list of list of int): A 2D grid where 1 represents
-        land and 0 represents water.
+        coins (list): List of coin denominations.
+        total (int): The total amount to be met with the coins.
 
     Returns:
-        int: The perimeter of the island.
+        int: Fewest number of coins needed, or -1
+        if it's not possible to meet the total.
     """
     if not grid:
         return 0
